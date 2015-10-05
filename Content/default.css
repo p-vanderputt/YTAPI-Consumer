@@ -1,0 +1,61 @@
+﻿body {
+}
+
+.hidden {
+    display: none;
+}
+
+h4.videoTitle{
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.item{
+    float: left;
+    margin-bottom: 14px;
+}
+
+.video{
+    width: 100%;
+    height: 100%;
+    transition: width 0.5s, height 0.5s;
+    background-color: black;
+}
+
+.expanded{
+
+}
+
+.free-item{
+    background-color: black;
+}
+
+.overlay{
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    position: fixed;
+
+    z-index: 100;
+
+    background-color: rgba(0,0,0,0.75);
+}
+
+.progress{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    
+    transform: translateY(-50%) translateX(-50%);
+
+    width: 50%;
+}
+
+.progress-bar{
+    transition: linear;
+}

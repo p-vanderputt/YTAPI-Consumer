@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+
+        .itemContainer{
+            width: 100%;
+        }
+
+        .itemBox{
+            position: relative;
+            width: calc(33% - 8px);
+            margin: 4px;
+        }
+
+        .itemBox:before{
+            content: "";
+            display: block;
+            padding-top: 56.25%;
+        }
+
+        .itemContent{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: black;
+        }
+
+        .free-item{
+            background-color: purple;
+            width: 480px;
+            height: 270px;
+            margin: 4px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="free-container" id="myContainer">
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+        <div class="free-item"><div class="video"></div></div>
+    </div>
+
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="freewall.js"></script>
+    <script>
+
+        $(function () {
+
+            //var width = (document.documentElement.clientWidth / 3) - 8;
+            //var height = width * 16 / 9;
+
+            var gutter = 16;
+
+            function cellWidth(containerWidth) {
+                if (containerWidth > 1024) {
+                    return (containerWidth / 3) - (gutter * 2);
+                } else if(containerWidth > 480){
+                    return (containerWidth / 2) - gutter;
+                } else {
+                    return containerWidth - gutter;
+                }
+            }
+
+            function cellHeight() {
+                if (document.documentElement.clientWidth > 1057) {
+                    return (((document.documentElement.clientWidth / 3) - (gutter * 2)) * 3 / 4);
+                } else if( document.documentElement.clientWidth > 513){
+                    return (((document.documentElement.clientWidth / 2) - gutter) * 3 / 4);
+                } else {
+                    return ((document.documentElement.clientWidth - gutter) * 3 / 4);
+                }
+            }
+
+            var wall = new Freewall("#myContainer");
+            wall.reset({
+                selector: ".free-item",
+                fixSize: 0,
+                cellW: cellWidth,
+                cellH: cellHeight,
+                gutterX: gutter,
+                gutterY: gutter,
+                animate: true,
+                onResize: function (container) {
+                    console.log(container);
+
+                    var containerWidth = container[0].dataset.wallWidth;
+
+                    $(".expanded").each(function () {
+                        if (containerWidth > 1024) {
+                            $(this).attr("data-width", containerWidth * 2 / 3);
+                            $(this).css("width", (containerWidth * 2 / 3)+"px");
+                        } else {
+                            $(this).attr("data-width", containerWidth);
+                            $(this).css("width", containerWidth+"px");
+                        }
+                    });
+
+                    wall.fitWidth();
+
+                    //$(".free-item").each(function () {
+                    //    var myw = $(this).attr("data-width");
+                    //    $(this).css("height", (myw * 3 / 4) + "px");
+                    //});
+                }
+            });
+            wall.fitWidth();
+
+
+            $(".free-item").click(function (e) {
+                e.preventDefault();
+                var width;
+                if ($(this).hasClass("expanded")) {
+
+                    if ($("#myContainer").attr("data-wall-width") > 1024) {
+                        width = $("#myContainer").attr("data-wall-width") / 3 - gutter;
+                    } else {
+                        width = $("#myContainer").attr("data-wall-width") / 2 - gutter;
+                    }
+                    $(this).removeClass("expanded");
+                } else {
+
+                    if ($("#myContainer").attr("data-wall-width") > 1024) {
+                        width = $("#myContainer").attr("data-wall-width") * 2 / 3 - gutter;
+                    } else {
+                        width = $("#myContainer").attr("data-wall-width") - gutter;
+                    }
+                    $(this).addClass("expanded");
+                }
+
+                $(this).attr("data-width", width);
+                $(this).attr("data-height", (width * 3 / 4));
+                $(this).css("width", width + "px");
+                $(this).css("height", (width * 3 / 4) + "px");
+
+                wall.fitWidth();
+                $(this).css("height", (width * 3 / 4) + "px");
+            });
+        });
+
+        
+    </script>
+</body>
+</html>

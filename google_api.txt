@@ -1,0 +1,5 @@
+﻿clientid: 228375627122-kdii63qt4pe7rtc7lcusl34f49vfpbnm.apps.googleusercontent.com
+secret: jmh3KgsF-tIWq4t_whf32acG
+
+key: AIzaSyAINeTePwT3EKGQ98PM_Ap8EfZMsRlk-2s
+

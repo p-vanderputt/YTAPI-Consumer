@@ -1,0 +1,14 @@
+{
+  "name": "FrontEndAPIConsumer",
+  "version": "0.0.0",
+  "description": "FrontEndAPIConsumer",
+  "main": "server.js",
+  "author": {
+    "name": "Patrick",
+    "email": ""
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.3.7"
+  }
+}

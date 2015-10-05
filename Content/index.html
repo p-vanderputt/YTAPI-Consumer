@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>hype.tube</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="default.css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid">
+                <div class="col-md-9 col-xs-12">
+                    <img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png" class="twitch-connect" href="#" />
+                    <div class="authenticated hidden">
+                        <div id="logout">
+                            <button>Log Out</button>
+                        </div>
+
+                        <div id="get-name">
+                            <button>Get TwitchTV Name</button>
+                            <input readonly="readonly" size="50" value="Unknown">
+                        </div>
+
+                        <div id="get-stream-key">
+                            <button>Get TwitchTV Stream Key</button>
+                            <input readonly="readonly" size="50" value="Unknown">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-12">
+                    <div class="scrollArea" id="chatBox"></div>
+                    <form id="chat">
+                        <input class="col-xs-11 col-md-9" type="text" id="userMessage" autocomplete="off" />
+                        <input class="col-xs-1 col-md-3" type="submit" id="chatBtn" value="Enter" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

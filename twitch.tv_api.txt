@@ -1,0 +1,2 @@
+clientID: 	sy7kuj108htubcvq9gz11hkf6ntc60y
+clientkey: 	mg2qijskqvv9sygtvhjpghtfbbgygbc

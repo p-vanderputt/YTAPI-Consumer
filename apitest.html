@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Youtube API Consumer</title>
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="/Content/default.css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="text-center col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+                            <form class="input-group">
+                                <input class="form-control" id="query" value='funny cat videos' type="text" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit" id="search-button" disabled>Search</button>
+                                </span>
+                            </form>
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn btn-default" type="button" id="loginBtn" disabled>YouTube Login</button>
+                        </div>
+                    </div>
+                    
+                    <div class="free-container" id="search-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay">
+        <div class="progress">
+            <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar">
+            </div>
+        </div>
+    </div>
+    
+    <script src="/Content/jquery-2.1.4.min.js"></script>
+    <script src="/Content/jquery-ui.min.js"></script>
+    <script src="/Content/freewall.js"></script>
+    <script src="/Content/youtubeapi.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+</body>
+</html>
